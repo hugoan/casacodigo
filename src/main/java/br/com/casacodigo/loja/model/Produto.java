@@ -1,5 +1,6 @@
 package br.com.casacodigo.loja.model;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.List;
 
@@ -22,10 +23,10 @@ public class Produto {
 
 	@ElementCollection
 	private List<Preco> precos;
-	
+
 	@DateTimeFormat
 	private Calendar dataLancamento;
-	
+
 	private String sumarioPath;
 
 	public Long getId() {
@@ -80,9 +81,38 @@ public class Produto {
 		this.sumarioPath = sumarioPath;
 	}
 
+	public BigDecimal precoPara(TipoPreco tipoPreco) {
+		return precos.stream().filter(preco -> preco.getTipo().equals(tipoPreco)).findFirst().get().getPreco();
+	}
+
 	@Override
 	public String toString() {
 		return "Produto [título = " + titulo + ", descrição = " + descricao + ", páginas = " + paginas + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Produto other = (Produto) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 
 }

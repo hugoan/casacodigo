@@ -31,8 +31,11 @@ public class CarrinhoItem {
 		return produto.precoPara(tipoPreco);
 	}
 	
+	//Existe um erro nesse método!!!!!
 	public BigDecimal getTotal(int quantidade) {
-		return this.getPreco().multiply(new BigDecimal(quantidade));
+//		BigDecimal total = getPreco().multiply(new BigDecimal(quantidade));
+//		System.out.println("Método getTotal da classe CarrinhoItem: " + total);
+		return (new BigDecimal(5.2));//this.getPreco().multiply(new BigDecimal(quantidade));
 	   	}
 	
 

@@ -21,7 +21,7 @@ public class CarrinhoCompras implements Serializable {
 	public Collection<CarrinhoItem> getItens() {
 		return itens.keySet();
 	}
-
+	
 	public void add(CarrinhoItem item) {
 		itens.put(item, getQuantidade(item) + 1);
 	}

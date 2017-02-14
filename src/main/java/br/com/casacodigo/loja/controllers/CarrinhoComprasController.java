@@ -26,17 +26,17 @@ public class CarrinhoComprasController {
 	CarrinhoCompras carrinho;
 	
 	@RequestMapping("/add")
-	public ModelAndView add(Long produtoId, TipoPreco tipo){
+	public ModelAndView add(Long produtoId, TipoPreco tipoPreco){
 		ModelAndView modelAndView = new ModelAndView("redirect:/carrinho");
-		CarrinhoItem carrinhoItem = criaItem(produtoId, tipo);
+		CarrinhoItem carrinhoItem = criaItem(produtoId, tipoPreco);
 		carrinho.add(carrinhoItem);
 		//modelAndView.addObject("carrinho", carrinho);
 		return modelAndView;
 	}
 	
-	private CarrinhoItem criaItem(Long produtoId, TipoPreco tipo){
+	private CarrinhoItem criaItem(Long produtoId, TipoPreco tipoPreco){
 		Produto produto = produtoDAO.find(produtoId);
-		CarrinhoItem carrinhoItem = new CarrinhoItem(produto, tipo);
+		CarrinhoItem carrinhoItem = new CarrinhoItem(produto, tipoPreco);
 		return carrinhoItem;
 	}
 	

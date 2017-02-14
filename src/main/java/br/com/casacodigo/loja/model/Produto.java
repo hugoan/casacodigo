@@ -82,7 +82,7 @@ public class Produto {
 	}
 
 	public BigDecimal precoPara(TipoPreco tipoPreco) {
-		return precos.stream().filter(preco -> preco.getTipo().equals(tipoPreco)).findFirst().get().getPreco();
+		return precos.stream().filter(preco -> preco.getTipo().equals(tipoPreco)).findFirst().get().getValor();
 	}
 
 	@Override
@@ -114,5 +114,7 @@ public class Produto {
 			return false;
 		return true;
 	}
+
+	
 
 }

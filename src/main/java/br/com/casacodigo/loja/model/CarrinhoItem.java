@@ -3,8 +3,9 @@ package br.com.casacodigo.loja.model;
 import java.math.BigDecimal;
 
 public class CarrinhoItem {
-	private TipoPreco tipoPreco;
+	
 	private Produto produto;
+	private TipoPreco tipoPreco;
 	
 	public CarrinhoItem(Produto produto, TipoPreco tipoPreco){
 		this.produto = produto;
@@ -33,9 +34,7 @@ public class CarrinhoItem {
 	
 	//Existe um erro nesse método!!!!!
 	public BigDecimal getTotal(int quantidade) {
-//		BigDecimal total = getPreco().multiply(new BigDecimal(quantidade));
-//		System.out.println("Método getTotal da classe CarrinhoItem: " + total);
-		return (new BigDecimal(5.2));//this.getPreco().multiply(new BigDecimal(quantidade));
+		return this.getPreco().multiply(new BigDecimal(quantidade));
 	   	}
 	
 

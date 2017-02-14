@@ -7,14 +7,14 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Preco {
 
-	private BigDecimal preco;
+	private BigDecimal valor;
 	private TipoPreco tipo;
 
-	public BigDecimal getPreco() {
-		return preco;
+	public BigDecimal getValor() {
+		return valor;
 	}
 	public void setPreco(BigDecimal preco) {
-		this.preco = preco;
+		this.valor = preco;
 	}
 	public TipoPreco getTipo() {
 		return tipo;
@@ -22,6 +22,5 @@ public class Preco {
 	public void setTipo(TipoPreco tipo) {
 		this.tipo = tipo;
 	}
-	
 	
 }

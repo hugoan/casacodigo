@@ -27,15 +27,15 @@
 	<section class="buy-options clearfix">
 		<form action="/casacodigo/carrinho/add" method="post" class="container">
 			<ul>
-				<input type="hidden" name="produtoId" value="${produto.id}" />
+				<input type="hidden" value="${produto.id}" name="produtoId" />
 					<c:forEach items="${produto.precos}" var="preco">
 						<li class="buy-option">
 						<input type="radio" name="tipo" class="variant-radio" id="tipo" value="${preco.tipo}" checked="checked" /> 
 							<label class="variant-label">${preco.tipo}</label> 
-							<p class="variant-price">${preco.preco}</p></li>
+							<p class="variant-price">${preco.valor}</p></li>
 					</c:forEach>
 			</ul>
-			<button type="submit" value="Compre Agora">Compre Agora</button>
+			<button type="submit" value="Compre Agora">Compre Agora ${produto.titulo}</button>
 		</form>
 
 	</section>
